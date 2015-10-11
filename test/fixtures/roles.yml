@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  role_name: MyString
+  role_auth_ids: MyString
+  role_auth_ac: MyString
+
+two:
+  role_name: MyString
+  role_auth_ids: MyString
+  role_auth_ac: MyString

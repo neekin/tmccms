@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Auths</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Auth name</th>
+      <th>Auth pid</th>
+      <th>Auth path</th>
+      <th>Auth controller</th>
+      <th>Auth action</th>
+      <th>Auth level</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @auths.each do |auth| %>
+      <tr>
+        <td><%= auth.auth_name %></td>
+        <td><%= auth.auth_pid %></td>
+        <td><%= auth.auth_path %></td>
+        <td><%= auth.auth_controller %></td>
+        <td><%= auth.auth_action %></td>
+        <td><%= auth.auth_level %></td>
+        <td><%= link_to 'Show', auth %></td>
+        <td><%= link_to 'Edit', edit_auth_path(auth) %></td>
+        <td><%= link_to 'Destroy', auth, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Auth', new_auth_path %>

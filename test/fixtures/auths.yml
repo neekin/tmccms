@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  auth_name: MyString
+  auth_pid: 1
+  auth_path: MyString
+  auth_controller: MyString
+  auth_action: MyString
+  auth_level: 1
+
+two:
+  auth_name: MyString
+  auth_pid: 1
+  auth_path: MyString
+  auth_controller: MyString
+  auth_action: MyString
+  auth_level: 1

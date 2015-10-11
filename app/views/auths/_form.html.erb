@@ -1,0 +1,48 @@
+<%= form_for(@auth) do |f| %>
+  <% if @auth.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@auth.errors.count, "error") %> prohibited this auth from being saved:</h2>
+
+      <ul>
+      <% @auth.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :auth_name %><br>
+    <%= f.text_field :auth_name %>
+  </div>
+  <div class="field">
+    <%= f.label :auth_pid %><br>
+    <%= f.select :auth_pid,options_for_select(Auth.where("id!=?",@auth.id ? @auth.id : 0).all.unshift(Auth.new(:auth_name=>"请选择",:id=>0)).map{ |c| [c.auth_name, c.id] },:selected=>@auth.auth_pid) %>
+  </div>
+      <%#= Auth.where("id!=#{@auth.id}").to_sql%>
+    <%#= f.select(:city_id) do %>
+        <%# [['Lisbon', 1], ['Madrid', 2]].each do |c| -%>
+            <%#= content_tag(:option, c.first, value: c.last) %>
+        <%# end %>
+    <%# end %>
+
+  <div class="field">
+    <%= f.label :auth_path %><br>
+    <%= f.text_field :auth_path %>
+  </div>
+  <div class="field">
+    <%= f.label :auth_controller %><br>
+    <%= f.text_field :auth_controller %>
+  </div>
+  <div class="field">
+    <%= f.label :auth_action %><br>
+    <%= f.text_field :auth_action %>
+  </div>
+  <div class="field">
+    <%= f.label :auth_level %><br>
+    <%= f.number_field :auth_level %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

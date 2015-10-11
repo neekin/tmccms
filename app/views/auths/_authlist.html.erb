@@ -1,0 +1,14 @@
+
+<% if Auth.where("auth_pid==?",auth.id).all  %>
+    <% if auth.auth_level == 0 %>
+        <%= auth.auth_name%>
+    <% end %>
+
+
+    <%Auth.where("auth_pid==?",auth.id).all.each do |a|  %>
+        <%= render partial: "roles/authlist",locals: {auth:a} %>
+    <% end %>
+<% else %>
+    <input type="checkbox" /><%= auth.auth_name%>
+<% end %>
+
